@@ -1,8 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const { SignUpWithEmailPassword, UpdateUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -10,6 +13,14 @@ const Register = () => {
     const password = e.target.password.value;
     const photoURL = e.target.photoURL.value;
     const name = e.target.name.value;
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setError(
+        "password should have one upperCase one lowerCase and 6 in size"
+      );
+      return;
+    }
 
     SignUpWithEmailPassword(email, password, photoURL, name)
       .then((user) => {
@@ -21,6 +32,7 @@ const Register = () => {
           .then(() => {
             console.log("updated");
             e.target.reset();
+            navigate("/");
           })
           .catch((error) => {
             console.log(error);
@@ -68,6 +80,8 @@ const Register = () => {
               <button className="btn btn-neutral mt-4">Register</button>
             </fieldset>
           </form>
+
+          <p className="text-xs text-red-600 font-bold">{error ? error : ""}</p>
         </div>
       </div>
     </div>
