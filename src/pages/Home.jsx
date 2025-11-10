@@ -1,7 +1,9 @@
+import HomeCourseSection from "../Components/HomeCourseSection";
+
 const Home = () => {
   return (
     <div>
-      <h1>This is home</h1>
+      <HomeCourseSection></HomeCourseSection>
     </div>
   );
 };
