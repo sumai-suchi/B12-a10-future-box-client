@@ -10,6 +10,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import MyAddedCourse from "../pages/MyAddedCourse";
 import MyEnrolledCourse from "../pages/MyEnrolledCourse";
 import AddCourses from "../pages/AddCourses";
+import ViewDetailsPage from "../Components/ViewDetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path:'/viewDetails/:id',
+        element: <ViewDetailsPage></ViewDetailsPage>
+      }
     ],
   },
   {

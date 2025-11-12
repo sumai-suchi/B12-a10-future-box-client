@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { NavLink } from "react-router";
 
 const CourseCard = ({ course }) => {
   console.log(course);
@@ -25,7 +26,9 @@ const CourseCard = ({ course }) => {
           {course.title}
         </h2>
         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-          {course.description}
+          {course?.description?.length > 100
+            ? course.description.slice(0, 100) + "..."
+            : course.description}
         </p>
 
         <div className="flex justify-between items-center pt-3">
@@ -47,9 +50,12 @@ const CourseCard = ({ course }) => {
           <span>{course.level}</span>
         </div>
 
-        <button className="w-full mt-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-xl transition-colors duration-300">
+        <NavLink
+          to={`/viewDetails/${course._id}`}
+          className="w-full mt-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-xl transition-colors duration-300"
+        >
           See Details
-        </button>
+        </NavLink>
       </div>
     </div>
   );
