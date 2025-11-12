@@ -33,6 +33,7 @@ const AddCourses = () => {
       const result = res.data;
       if (result.insertedId) {
         toast("Course added successfully");
+        e.target.reset();
       }
     } catch (error) {
       console.log(error);

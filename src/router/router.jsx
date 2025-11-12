@@ -11,6 +11,7 @@ import MyAddedCourse from "../pages/MyAddedCourse";
 import MyEnrolledCourse from "../pages/MyEnrolledCourse";
 import AddCourses from "../pages/AddCourses";
 import ViewDetailsPage from "../Components/ViewDetailsPage";
+import UpdateData from "../Components/UpdateData";
 
 export const router = createBrowserRouter([
   {
@@ -30,9 +31,9 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path:'/viewDetails/:id',
-        element: <ViewDetailsPage></ViewDetailsPage>
-      }
+        path: "/viewDetails/:id",
+        element: <ViewDetailsPage></ViewDetailsPage>,
+      },
     ],
   },
   {
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
       {
         path: "addCourse",
         element: <AddCourses></AddCourses>,
+      },
+      {
+        path: "UpdateData/:id",
+        element: <UpdateData></UpdateData>,
       },
     ],
   },
