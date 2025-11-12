@@ -79,7 +79,10 @@ const MyAddedCourse = () => {
             </div>
             <div className="flex flex-col space-y-4">
               <h1 className="font-bold">Update Data</h1>
-              <NavLink to={``} className="badge badge-dash badge-secondary">
+              <NavLink
+                to={`/dashboard/UpdateDataInfo/${data?._id}`}
+                className="badge badge-dash badge-secondary"
+              >
                 Update
               </NavLink>
             </div>

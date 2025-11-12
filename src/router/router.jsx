@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
         element: <AddCourses></AddCourses>,
       },
       {
-        path: "UpdateData/:id",
+        path: "UpdateDataInfo/:id",
         element: <UpdateData></UpdateData>,
       },
     ],

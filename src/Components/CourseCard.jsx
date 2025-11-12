@@ -1,10 +1,24 @@
+import Aos from "aos";
 import { Star } from "lucide-react";
+import { useEffect } from "react";
 import { NavLink } from "react-router";
+import "aos/dist/aos.css";
 
 const CourseCard = ({ course }) => {
   console.log(course);
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
   return (
-    <div className="max-w-sm  flex flex-col justify-center items-center bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+    <div
+      className="max-w-sm  flex flex-col justify-center items-center bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+      data-aos="zoom-in"
+      data-aos-delay="200"
+    >
       <img
         src={course?.image}
         alt={course.title}
@@ -52,7 +66,7 @@ const CourseCard = ({ course }) => {
 
         <NavLink
           to={`/viewDetails/${course._id}`}
-          className="w-full mt-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-xl transition-colors duration-300"
+          className="w-full mt-3 btn bg-linear-to-r from-[#793ac7]/50 to-black/70 text-white font-semibold py-2 rounded-xl transition-colors duration-300"
         >
           See Details
         </NavLink>

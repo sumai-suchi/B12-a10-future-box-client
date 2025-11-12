@@ -4,8 +4,17 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const ViewDetailsPage = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false,
+    });
+  }, []);
   const { user } = useContext(AuthContext);
   console.log(user?.email);
   const { id } = useParams();
@@ -49,59 +58,11 @@ const ViewDetailsPage = () => {
       `http://localhost:3000/enrolledUserData?email=${user?.email}`,
       EnrollInformation
     );
-    // console.log(enrollData.data);
+
     if (enrollData.data.insertedId) {
       toast("You have enrolled successfully");
     }
   };
-
-  // category
-  // :
-  // "Web Development"
-  // description
-  // :
-  // "Understand the basics of JavaScript and start adding interactivity to your websites."
-  // duration
-  // :
-  // "8 weeks"
-  // id
-  // :
-  // 2
-  // image
-  // :
-  // "https://i.ibb.co.com/sp1QkLY8/Basic-Java-Script-Tutorial-for-Beginners.jpg"
-  // instructor
-  // :
-  // "Michael Smith"
-  // level
-  // :
-  // "Beginner"
-  // price
-  // :
-  // 39.99
-  // rating
-  // :
-  // 4.8
-  // title
-  // :
-  // "JavaScript for Beginners"
-  // _id
-  // :
-  // "6911b0fb590c2742018e25da"
-
-  //   Details
-  // Duration
-  // : 8 hours total
-  // Level
-  // : Intermediate
-  // Modules
-  // : 12 modules
-  // Language
-  // : English
-  // Price
-  // : $64.90
-  // Certificate
-  // : Included
 
   return (
     <div>
@@ -112,8 +73,8 @@ const ViewDetailsPage = () => {
         </p>
       </div>
 
-      <div className="w-11/12 mx-auto my-20 flex flex-col md:flex-row justify-around ">
-        <div className="">
+      <div className="w-11/12 mx-auto my-20 flex flex-col md:flex-row justify-around  ">
+        <div className="" data-aos="zoom-in" data-aos-delay="200">
           <h1 className="text-2xl font-bold">{detailsData.title}</h1>
           <img
             className="my-2 rounded-2xl w-2xl h-96"
@@ -131,7 +92,7 @@ const ViewDetailsPage = () => {
           </button>
         </div>
 
-        <div className="  ">
+        <div className="  " data-aos="flip-up" data-aos-delay="200">
           <div className="flex bg-fuchsia-300 w-2xs text-xl rounded-2xl h-full my-7 space-y-6 font-semibold flex-col justify-center items-center">
             <h2>Duration : {detailsData.duration}</h2>
             <hr className="text-fuchsia-950 w-44" />
