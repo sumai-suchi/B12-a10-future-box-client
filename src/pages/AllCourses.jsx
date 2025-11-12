@@ -5,6 +5,8 @@ import CourseCard from "../Components/CourseCard";
 
 const AllCourses = () => {
   const { allCourses, loadingData } = useAllCoursesData();
+
+
   const location = useLocation();
   console.log(location);
   return (
@@ -15,6 +17,17 @@ const AllCourses = () => {
         </p>
         <img src={CourseImg} className="w-full h-[450px]" alt="" />
       </div>
+
+      <div className="w-2xl text-center mt-11">
+        <select defaultValue="" className="select appearance-none">
+          <option disabled={true}>Filter by Category</option>
+
+          {/* {Category.map((cat, i) => (
+            <option key={i}>{cat}</option>
+          ))} */}
+        </select>
+      </div>
+
       <div>
         {loadingData ? (
           <span className="loading loading-spinner loading-xl"></span>

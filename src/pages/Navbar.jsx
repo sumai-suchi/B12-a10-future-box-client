@@ -1,12 +1,28 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { NavLink } from "react-router";
+import { SiGreatlearning } from "react-icons/si";
 
 const links = (
   <>
-    <NavLink to={"/"}>Home</NavLink>
-    <NavLink to={"/allCourses"}>AllCourses</NavLink>
-    <NavLink to={"/dashboard"}>Dashboard</NavLink>
+    <NavLink
+      className={"bg-white/80 p-4 opacity-70 rounded-4xl border border-white"}
+      to={"/"}
+    >
+      Home
+    </NavLink>
+    <NavLink
+      className={"bg-white/80 p-4 opacity-70 rounded-4xl border border-white"}
+      to={"/allCourses"}
+    >
+      AllCourses
+    </NavLink>
+    <NavLink
+      className={"bg-white/80 p-4 opacity-70 rounded-4xl border border-white"}
+      to={"/dashboard"}
+    >
+      Dashboard
+    </NavLink>
   </>
 );
 
@@ -24,7 +40,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-linear-to-r from-[#4d64e8]/50 to-[#3b4266] h-28  shadow-sm ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,12 +62,15 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content gap-2.5 bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content gap-2   md:gap-11 bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl md:text-4xl font-bold italic text-white">
+          <SiGreatlearning />
+          Future-Box
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-2 px-1">{links}</ul>

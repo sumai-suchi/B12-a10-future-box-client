@@ -48,7 +48,7 @@ const MyAddedCourse = () => {
         userData?.map((data) => (
           <div
             key={data._id}
-            className="flex  justify-around bg-fuchsia-50 rounded-2xl  text-fuchsia-950 opacity-70 p-3"
+            className="flex flex-col md:flex-row mt-7 gap-4 md:gap-28 bg-fuchsia-50 rounded-2xl  text-fuchsia-950 opacity-70 p-3"
           >
             <div className="flex gap-2 ">
               <img src={data?.image} className="w-2xs h-28" alt="" />
@@ -63,28 +63,30 @@ const MyAddedCourse = () => {
               </div>
             </div>
 
-            <div className="flex space-y-4 flex-col">
-              <h1 className="font-bold">Category</h1>
+            <div className="flex flex-row gap-2 md:gap-32">
+              <div className="flex space-y-4 flex-col">
+                <h1 className="font-bold">Category</h1>
 
-              <div className="badge badge-secondary">{data?.category}</div>
-            </div>
-            <div className="flex flex-col space-y-4">
-              <h1 className="font-bold">Remove</h1>
-              <button
-                className="badge badge-dash badge-secondary"
-                onClick={() => handleDeleteCourse(data?._id)}
-              >
-                Delete
-              </button>
-            </div>
-            <div className="flex flex-col space-y-4">
-              <h1 className="font-bold">Update Data</h1>
-              <NavLink
-                to={`/dashboard/UpdateDataInfo/${data?._id}`}
-                className="badge badge-dash badge-secondary"
-              >
-                Update
-              </NavLink>
+                <div className="badge badge-secondary">{data?.category}</div>
+              </div>
+              <div className="flex flex-col space-y-4">
+                <h1 className="font-bold">Remove</h1>
+                <button
+                  className="badge badge-dash badge-secondary"
+                  onClick={() => handleDeleteCourse(data?._id)}
+                >
+                  Delete
+                </button>
+              </div>
+              <div className="flex flex-col space-y-4">
+                <h1 className="font-bold">Update Data</h1>
+                <NavLink
+                  to={`/dashboard/UpdateDataInfo/${data?._id}`}
+                  className="badge badge-dash badge-secondary"
+                >
+                  Update
+                </NavLink>
+              </div>
             </div>
           </div>
         ))

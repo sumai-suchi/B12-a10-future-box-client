@@ -13,11 +13,11 @@ const Title = ({ title }) => {
 
   return (
     <div
-      className="my-20 text-4xl flex flex-col justify-center items-center gap-1 font-bold  text-center "
+      className="my-20  flex flex-col justify-center items-center gap-1 font-bold  text-center "
       data-aos="zoom-in-right"
       data-aos-delay="200"
     >
-      <h1 className="text-blue-950 text-6xl ">{title}</h1>
+      <h1 className="text-blue-950 text-2xl md:text-6xl ">{title}</h1>
     </div>
   );
 };
