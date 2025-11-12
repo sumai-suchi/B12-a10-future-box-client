@@ -12,6 +12,7 @@ import MyEnrolledCourse from "../pages/MyEnrolledCourse";
 import AddCourses from "../pages/AddCourses";
 import ViewDetailsPage from "../Components/ViewDetailsPage";
 import UpdateData from "../Components/UpdateData";
+import ErrorPage from "../Components/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
         element: <ViewDetailsPage></ViewDetailsPage>,
       },
     ],
+    errorElement: <ErrorPage></ErrorPage>,
   },
   {
     path: "auth",
@@ -49,6 +51,7 @@ export const router = createBrowserRouter([
         element: <Register></Register>,
       },
     ],
+    errorElement: <ErrorPage></ErrorPage>,
   },
   {
     path: "dashboard",
@@ -76,5 +79,6 @@ export const router = createBrowserRouter([
         element: <UpdateData></UpdateData>,
       },
     ],
+    errorElement: <ErrorPage></ErrorPage>,
   },
 ]);
