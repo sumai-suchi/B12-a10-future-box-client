@@ -33,7 +33,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/viewDetails/:id",
-        element: <ViewDetailsPage></ViewDetailsPage>,
+        element: (
+          <PrivateRoute>
+            <ViewDetailsPage></ViewDetailsPage>
+          </PrivateRoute>
+        ),
       },
     ],
     errorElement: <ErrorPage></ErrorPage>,
