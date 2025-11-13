@@ -79,6 +79,15 @@ const MyAddedCourse = () => {
                 </button>
               </div>
               <div className="flex flex-col space-y-4">
+                <h1 className="font-bold">Details</h1>
+                <NavLink
+                  to={`/viewDetails/${data?._id}`}
+                  className="badge w-28 badge-dash badge-secondary"
+                >
+                  See Details
+                </NavLink>
+              </div>
+              <div className="flex flex-col space-y-4">
                 <h1 className="font-bold">Update Data</h1>
                 <NavLink
                   to={`/dashboard/UpdateDataInfo/${data?._id}`}
