@@ -2,10 +2,14 @@ import { useState } from "react";
 import { MdMenuOpen } from "react-icons/md";
 import { GiCrossedSabres } from "react-icons/gi";
 import { NavLink, Outlet } from "react-router";
+import { Helmet } from "react-helmet";
 const DashboardLayout = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="w-full p-5 min-h-screen bg-linear-to-r from-[#FF0062]/35 via-[#090979]/50 to-[#020024] flex flex-col md:flex-row    mt-1">
+      <Helmet>
+        <title>Future-box | Dashboard</title>
+      </Helmet>
       <div className="relative w-full md:w-3/12">
         <button onClick={() => setOpen(true)} className=" absolute top-0 ">
           <MdMenuOpen className="size-8" />
