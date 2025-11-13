@@ -38,17 +38,17 @@ const MyAddedCourse = () => {
 
   return (
     <div className="flex flex-col gap-2.5">
-      {userData.length === 0 ? (
+      {userData?.length === 0 ? (
         <div className="text-center justify-center">
           <h1 className="text-4xl font-bold text-white">
-            There is not Course added here
+            There is no Course added here
           </h1>
         </div>
       ) : (
         userData?.map((data) => (
           <div
             key={data._id}
-            className="flex flex-col md:flex-row mt-7 gap-4 md:gap-28 bg-fuchsia-50 rounded-2xl  text-fuchsia-950 opacity-70 p-3"
+            className="flex flex-col md:flex-row mt-7 gap-4 md:gap-28 bg-black/50 rounded-2xl  text-white opacity-70 p-3"
           >
             <div className="flex gap-2 ">
               <img src={data?.image} className="w-2xs h-28" alt="" />

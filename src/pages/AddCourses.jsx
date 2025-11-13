@@ -14,7 +14,29 @@ const AddCourses = () => {
     const duration = e.target.duration.value;
     const category = e.target.category.value;
     const description = e.target.description.value;
-    console.log(title, image, price, duration, category);
+    const name = e.target.name.value;
+
+    const UserImage = e.target.UserImage.value;
+    const isFeatured = e.target.isFeatured.value;
+    const rating = e.target.rating.value;
+    const level = e.target.level.value;
+    const instructor = e.target.instructor.value;
+
+    console.log(
+      title,
+      image,
+      price,
+      duration,
+      category,
+      name,
+      email,
+      UserImage,
+      isFeatured,
+      rating,
+      level,
+      instructor,
+      description
+    );
     const courseData = {
       title,
       image,
@@ -22,7 +44,13 @@ const AddCourses = () => {
       description,
       duration,
       category,
+      name,
       email,
+      UserImage,
+      isFeatured,
+      rating,
+      level,
+      instructor,
     };
 
     try {
@@ -107,18 +135,102 @@ const AddCourses = () => {
             />
           </div>
         </div>
+        {/* user info */}
+        <div className="flex flex-col md:flex-row gap-2">
+          {/* Title */}
+          <div className="flex-1">
+            <label className="block  text-gray-700 font-semibold mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={user?.displayName}
+              placeholder="Enter course title"
+              className="w-full border border-gray-300 bg-neutral-100 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              required
+            />
+          </div>
+
+          <div className="flex-1">
+            <label className="block  text-gray-700 font-semibold mb-2">
+              Email
+            </label>
+            <input
+              type="text"
+              name="email"
+              value={user?.email}
+              placeholder="Enter course title"
+              className="w-full border border-gray-300 bg-neutral-100 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              required
+            />
+          </div>
+
+          {/* Image URL */}
+          <div className="flex-1">
+            <label className="block text-gray-700 font-semibold mb-2">
+              User Image URL
+            </label>
+            <input
+              type="text"
+              name="UserImage"
+              value={user?.photoURL}
+              placeholder="Paste image URL"
+              className="w-full border bg-neutral-100 border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+            />
+          </div>
+        </div>
         {/* Category */}
-        <div>
-          <label className="block text-gray-700 font-semibold mb-2">
-            Category
-          </label>
-          <input
-            type="text"
-            name="category"
-            placeholder="e.g. Web Development"
-            className="w-full bg-neutral-100 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
-            required
-          />
+        <div className="flex flex-col gap-2 md:flex-row">
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2">
+              Category
+            </label>
+            <input
+              type="text"
+              name="category"
+              placeholder="e.g. Web Development"
+              className="w-full bg-neutral-100 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              required
+            />
+          </div>
+
+          <div className="flex-1">
+            <label className="block text-gray-700 font-semibold mb-2">
+              rating
+            </label>
+            <input
+              type="number"
+              name="rating"
+              placeholder="Enter rating"
+              className="w-full border bg-neutral-100 border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              required
+            />
+          </div>
+          <div className="flex-1">
+            <label className="block text-gray-700 font-semibold mb-2">
+              level
+            </label>
+            <input
+              type="text"
+              name="level"
+              placeholder="Enter level"
+              className="w-full border bg-neutral-100 border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              required
+            />
+          </div>
+          <div className="flex-1">
+            <label className="block text-gray-700 font-semibold mb-2">
+              instructor
+            </label>
+            <input
+              type="text"
+              name="instructor"
+              placeholder="Enter level"
+              className="w-full border bg-neutral-100 border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              required
+            />
+          </div>
         </div>
 
         {/* Description */}

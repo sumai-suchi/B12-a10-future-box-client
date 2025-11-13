@@ -6,26 +6,45 @@ import { toast } from "react-toastify";
 const UpdateData = () => {
   const { id } = useParams();
   const [OneData, setOneData] = useState({});
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
+  const [duration, setDuration] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [Error, setError] = useState("");
 
   useEffect(() => {
     const FetchData = async () => {
-      const DetailsCourseData = await axios.get(
-        `http://localhost:3000/updateData/${id}`
-      );
-      setOneData(DetailsCourseData.data);
+      try {
+        const DetailsCourseData = await axios.get(
+          `http://localhost:3000/updateData/${id}`
+        );
+        setOneData(DetailsCourseData.data);
+        setTitle(OneData?.title || "");
+        setImage(OneData?.image || "");
+        setPrice(OneData?.price || "");
+        setDuration(OneData?.duration || "");
+        setCategory(OneData?.category || "");
+        setDescription(OneData?.description || "");
+      } catch (error) {
+        toast(error);
+      }
     };
     FetchData();
-  }, [id]);
+  }, [
+    id,
+    OneData.title,
+    OneData.image,
+    OneData.price,
+    OneData.duration,
+    OneData.category,
+    OneData.description,
+  ]);
+
   console.log(OneData);
   console.log(OneData.title);
 
-  const [title, setTitle] = useState(OneData.title || "");
-  const [image, setImage] = useState(OneData.image || "");
-  const [price, setPrice] = useState(OneData.price || "");
-  const [duration, setDuration] = useState(OneData.duration || "");
-  const [category, setCategory] = useState(OneData.category || "");
-  const [description, setDescription] = useState(OneData.description || "");
-  const [Error, setError] = useState("");
   console.log(title, image, price, duration, category, description);
   //   const updatedInfo = { title, image, price, duration, category, description };
   const updatedInfo = {
@@ -37,9 +56,7 @@ const UpdateData = () => {
     description,
   };
 
-  const handleUpdateData = async (e) => {
-    e.preventDefault();
-
+  const handleUpdateData = async () => {
     try {
       const updateDoc = await axios.patch(
         `http://localhost:3000/updateData/${id}`,
@@ -56,10 +73,7 @@ const UpdateData = () => {
   return (
     <div>
       <div className=" w-full mt-20 opacity-70 flex items-center justify-center p-2 md:p-6">
-        <form
-          className="bg-neutral-50  shadow-2xl rounded-2xl p-8 w-full space-y-6"
-          onSubmit={handleUpdateData}
-        >
+        <form className="bg-neutral-50  shadow-2xl rounded-2xl p-8 w-full space-y-6">
           <h2 className="text-3xl font-bold text-center text-gray-800">
             Update Your Course Data
           </h2>
@@ -173,7 +187,7 @@ const UpdateData = () => {
 
           {/* Submit Button */}
           <button
-            type="submit"
+            onClick={handleUpdateData}
             className="w-full bg-linear-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 rounded-lg hover:opacity-90 transition-all"
           >
             Update Course
