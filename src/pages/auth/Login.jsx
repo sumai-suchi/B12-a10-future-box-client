@@ -29,7 +29,7 @@ const Login = () => {
           theme: "light",
         });
 
-        navigate(`${location.state}`);
+        navigate(location.state || "/");
       })
       .catch((error) => {
         toast(`${error.message}`, {
@@ -48,17 +48,19 @@ const Login = () => {
     signInWithGoogle()
       .then((res) => {
         console.log(res);
+        toast("User logged in with google");
+        navigate(location.state || "/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => toast(`${error.message}`));
   };
   return (
-    <div className=" flex flex-col min-h-screen justify-center items-center ">
-      <h1 className="font-bold text-5xl">Login Here!!!</h1>
-      <div className="card bg-base-100 p-0 w-96  shrink-0 shadow-2xl">
+    <div className=" flex flex-col bg-linear-to-r from-[#4d64e8]/80 to-[#3b4266]/20 min-h-screen justify-center items-center ">
+      <h1 className="font-bold my-3 text-5xl">Login Here!!!</h1>
+      <div className="card bg-black/50 opacity-85 p-0 w-96  shrink-0 shadow-2xl">
         <div className="card-body">
           <form onSubmit={handleOnSubmit}>
             <fieldset className="fieldset">
-              <label className="label">Email</label>
+              <label className="label text-white">Email</label>
               <input
                 type="email"
                 name="email"
@@ -66,7 +68,7 @@ const Login = () => {
                 placeholder="Email"
               />
 
-              <label className="label">Password</label>
+              <label className="label text-white">Password</label>
               <input
                 type="password"
                 name="password"
