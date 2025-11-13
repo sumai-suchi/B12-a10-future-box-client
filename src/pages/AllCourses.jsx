@@ -14,7 +14,9 @@ const AllCourses = () => {
 
   useEffect(() => {
     const fetchCategory = async () => {
-      const categories = await axios.get(`http://localhost:3000/Category`);
+      const categories = await axios.get(
+        `https://b12-a10-future-box-server-hazel.vercel.app/Category`
+      );
       setCategories(categories.data);
     };
     fetchCategory();
@@ -24,8 +26,8 @@ const AllCourses = () => {
     const fetchCourses = async () => {
       try {
         const url = selectedCategories
-          ? `http://localhost:3000/courses?category=${selectedCategories}`
-          : `http://localhost:3000/courses`;
+          ? `https://b12-a10-future-box-server-hazel.vercel.app/courses?category=${selectedCategories}`
+          : `https://b12-a10-future-box-server-hazel.vercel.app/courses`;
         const categories = await axios.get(url);
         setCourses(categories.data);
       } catch (error) {

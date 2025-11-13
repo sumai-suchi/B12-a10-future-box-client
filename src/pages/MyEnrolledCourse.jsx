@@ -11,7 +11,7 @@ const MyEnrolledCourse = () => {
     const MyEnrolledDataFetch = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/EnrolledData?email=${user?.email}`
+          `https://b12-a10-future-box-server-hazel.vercel.app/EnrolledData?email=${user?.email}`
         );
         setEnrollData(res.data);
       } catch (error) {

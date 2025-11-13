@@ -31,7 +31,9 @@ const ViewDetailsPage = () => {
   useEffect(() => {
     const courseDetailsFetch = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/viewDetails/${id}`);
+        const res = await axios.get(
+          `https://b12-a10-future-box-server-hazel.vercel.app/viewDetails/${id}`
+        );
         // const data = await res.data;
         setDetails(res.data);
         // if (res.data) {
@@ -55,7 +57,7 @@ const ViewDetailsPage = () => {
     const EnrollInformation = { ...detailsData, email: user?.email };
 
     const enrollData = await axios.post(
-      `http://localhost:3000/enrolledUserData?email=${user?.email}`,
+      `https://b12-a10-future-box-server-hazel.vercel.app/enrolledUserData?email=${user?.email}`,
       EnrollInformation
     );
 

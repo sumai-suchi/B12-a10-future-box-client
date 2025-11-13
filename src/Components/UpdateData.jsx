@@ -18,7 +18,7 @@ const UpdateData = () => {
     const FetchData = async () => {
       try {
         const DetailsCourseData = await axios.get(
-          `http://localhost:3000/updateData/${id}`
+          `https://b12-a10-future-box-server-hazel.vercel.app/updateData/${id}`
         );
         setOneData(DetailsCourseData.data);
         setTitle(OneData?.title || "");
@@ -59,7 +59,7 @@ const UpdateData = () => {
   const handleUpdateData = async () => {
     try {
       const updateDoc = await axios.patch(
-        `http://localhost:3000/updateData/${id}`,
+        `https://b12-a10-future-box-server-hazel.vercel.app/updateData/${id}`,
         updatedInfo
       );
       console.log(updateDoc.data);

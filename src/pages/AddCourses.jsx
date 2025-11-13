@@ -55,7 +55,7 @@ const AddCourses = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:3000/addedCourses`,
+        `https://b12-a10-future-box-server-hazel.vercel.app/addedCourses`,
         courseData
       );
       const result = res.data;

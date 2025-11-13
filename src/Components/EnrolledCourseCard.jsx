@@ -11,42 +11,7 @@ const EnrolledCourseCard = ({ data }) => {
     price,
     title,
   } = data;
-  //   category
-  // :
-  // "Frontend Framework"
-  // description
-  // :
-  // "Master the core concepts of React — components, props, state, and hooks — to build modern, dynamic user interfaces. This course focuses on practical implementation, guiding you through building reusable UI components and handling data efficiently. You’ll also learn how to manage side effects and structure React applications for scalability. By the end, you’ll have a solid portfolio project to showcase your skills."
-  // duration
-  // :
-  // "6 weeks"
-  // email
-  // :
-  // "rai@gmail.com"
-  // id
-  // :
-  // 3
-  // image
-  // :
-  // "https://i.ibb.co.com/8g3Dz73t/React-Fundamentals-56e32fd939.png"
-  // instructor
-  // :
-  // "Emily Carter"
-  // level
-  // :
-  // "Intermediate"
-  // price
-  // :
-  // 49.99
-  // rating
-  // :
-  // 4.9
-  // title
-  // :
-  // "React Fundamentals"
-  // _id
-  // :
-  // "6911b0fb590c2742018e25db"
+
   return (
     <div className="w-10/12 mx-auto opacity-80 p-2 md:p-9  bg-fuchsia-200 rounded-2xl flex flex-col md:flex-row  justify-between">
       <div className="flex-1">

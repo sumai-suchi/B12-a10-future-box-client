@@ -16,7 +16,9 @@ const TopInstructor = () => {
   useEffect(() => {
     const fetchInstructorData = async () => {
       try {
-        const data = await axios.get(`http://localhost:3000/InstructorData`);
+        const data = await axios.get(
+          `https://b12-a10-future-box-server-hazel.vercel.app/InstructorData`
+        );
         console.log(data.data);
         setInstructorData(data.data);
       } catch (error) {

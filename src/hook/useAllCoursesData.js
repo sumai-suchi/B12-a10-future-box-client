@@ -9,7 +9,9 @@ export const useAllCoursesData = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/courses`);
+        const res = await axios.get(
+          `https://b12-a10-future-box-server-hazel.vercel.app/courses`
+        );
         setAllCourses(res.data);
       } catch (error) {
         setError(error);
