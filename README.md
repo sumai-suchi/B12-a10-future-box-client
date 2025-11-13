@@ -33,7 +33,7 @@
   12. react-icons
   13. lucid-react-icons
   
-gitHubLink:
-Live-siteLink: 
+gitHubLink:https://github.com/sumai-suchi/B12-a10-future-box-client
+Live-siteLink: https://b12-a10-future-box-client.web.app/
         
       
