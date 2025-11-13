@@ -53,9 +53,9 @@ const Register = () => {
   };
 
   return (
-    <div className=" flex flex-col bg-linear-to-r from-[#4d64e8]/80 to-[#3b4266]/20  min-h-screen justify-center items-center ">
-      <h1 className="font-bold my-2 text-5xl">Register Here!!!</h1>
-      <div className="card  bg-black/50 opacity-85 p-0 w-96  shrink-0 shadow-2xl">
+    <div className="w-full flex flex-col bg-linear-to-r from-[#4d64e8]/80 to-[#3b4266]/20  min-h-screen justify-center items-center ">
+      <h1 className="font-bold my-2 text-2xl md:text-5xl">Register Here!!!</h1>
+      <div className="card  bg-black/50 opacity-85 p-0 w-2xs mx-auto md:w-96  shrink-0 shadow-2xl">
         <div className="card-body">
           <form onSubmit={handleOnSubmit}>
             <fieldset className="fieldset">
