@@ -10,11 +10,14 @@ import { AuthContext } from "./AuthContext";
 import { auth } from "../firebase.config";
 import { useEffect, useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
 
 const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [role,setRole] = useState('');
+  const [userData,setUserData]=useState(null);
   console.log(user);
   const SignUpWithEmailPassword = (email, password) => {
     setLoading(true);
@@ -34,7 +37,18 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return updateProfile(auth.currentUser, userInfo);
   };
+     useEffect(() => {
+      console.log(user?.email);
+    axios.get(`http://localhost:3000/users/role?email=${user?.email}`).then((res) => {
+      console.log(res.data)
+      setUserData(res.data);
+      console.log("User IP Address:", res.data.role);
+      setRole(res.data.role);
+       setLoading(false);
+    });
+  }, [user?.email,role]);
 
+ 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (CurrentUser) => {
       console.log(CurrentUser);
@@ -46,6 +60,8 @@ const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
+
+
 
   const SignOut = () => {
     return signOut(auth);
@@ -59,6 +75,8 @@ const AuthProvider = ({ children }) => {
     loading,
     user,
     signInWithGoogle,
+    role,
+    userData
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>

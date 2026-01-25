@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useContext } from "react";
-import { toast } from "react-toastify";
-import { AuthContext } from "../context/AuthContext";
 
-const AddCourses = () => {
+import { toast } from "react-toastify";
+import { AuthContext } from "../../../context/AuthContext";
+
+const AddCourse = () => {
   const { user } = useContext(AuthContext);
   const email = user?.email;
   const handleAddCourseData = async (e) => {
@@ -268,4 +269,4 @@ const AddCourses = () => {
   );
 };
 
-export default AddCourses;
+export default AddCourse;

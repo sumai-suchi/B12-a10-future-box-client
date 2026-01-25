@@ -6,6 +6,7 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import useAxios from "../hook/useAxios";
 
 const ViewDetailsPage = () => {
   useEffect(() => {
@@ -27,6 +28,8 @@ const ViewDetailsPage = () => {
   const [detailsData, setDetails] = useState({});
   const [Error, setError] = useState("");
   const [Loading, setLoading] = useState(true);
+    const axiosInstance=useAxios();
+
 
   useEffect(() => {
     const courseDetailsFetch = async () => {
@@ -53,18 +56,32 @@ const ViewDetailsPage = () => {
 
   console.log(detailsData);
 
-  const handleUserEnroll = async () => {
-    const EnrollInformation = { ...detailsData, email: user?.email };
+const handleUserEnroll = async () => {
+  if (!user?.email) {
+    console.log
+    toast.error("User email not found. Please login first.");
+    return;
+  }
 
-    const enrollData = await axios.post(
-      `https://b12-a10-future-box-server-hazel.vercel.app/enrolledUserData?email=${user?.email}`,
+  const EnrollInformation = { ...detailsData, email: user?.email };
+
+  try {
+    // Optional: show loading state
+    const res = await axiosInstance.post(
+      "/enrolledUserData",
       EnrollInformation
     );
 
-    if (enrollData.data.insertedId) {
-      toast("You have enrolled successfully");
+    if (res.status === 201 || res.data.insertedId) {
+      toast.success("You have enrolled successfully!");
+    } else {
+      toast.error("Enrollment failed. Please try again.");
     }
-  };
+  } catch (error) {
+    console.error("Enroll API error:", error);
+    toast.error("Network error. Please try again later.");
+  }
+};
 
   return (
     <div>

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const Register = () => {
   const { SignUpWithEmailPassword, UpdateUser, signInWithGoogle } =
@@ -22,7 +23,12 @@ const Register = () => {
       );
       return;
     }
-
+    const userInfo ={
+      email,
+      password,
+      photoURL,
+      name
+    }
     SignUpWithEmailPassword(email, password, photoURL, name)
       .then((user) => {
         console.log(user);
@@ -32,6 +38,11 @@ const Register = () => {
         })
           .then(() => {
             console.log("updated");
+            axios.post('http://localhost:3000/users', userInfo)
+            .then(res => console.log(res.data))
+             .then((error) => {
+                  console.log(error);
+                });
             e.target.reset();
             navigate("/");
           })
