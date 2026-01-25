@@ -38,7 +38,7 @@ const Register = () => {
         })
           .then(() => {
             console.log("updated");
-            axios.post('http://localhost:3000/users', userInfo)
+            axios.post('https://b12-a10-future-box-server-hazel.vercel.app/users', userInfo)
             .then(res => console.log(res.data))
              .then((error) => {
                   console.log(error);

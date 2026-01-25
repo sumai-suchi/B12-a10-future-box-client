@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL:
-    "http://localhost:3000/",
+    "https://b12-a10-future-box-server-hazel.vercel.app/",
   headers: {
     "Content-Type": "application/json",
   },
