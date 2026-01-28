@@ -1,15 +1,15 @@
-import HomeCourseSection from "../Components/HomeCourseSection";
-import HomeHero from "../HomeComponents/HomeHero";
-import TopInstructor from "../HomeComponents/TopInstructor";
-import WhyUsSection from "../HomeComponents/WhyUsSection";
+import EnhancedHomeCourseSection from "../Components/EnhancedHomeCourseSection";
+import EnhancedHomeHero from "../HomeComponents/EnhancedHomeHero";
+import EnhancedTopInstructor from "../HomeComponents/EnhancedTopInstructor";
+import EnhancedWhyUsSection from "../HomeComponents/EnhancedWhyUsSection";
 
 const Home = () => {
   return (
     <div>
-      <HomeHero></HomeHero>
-      <HomeCourseSection></HomeCourseSection>
-      <TopInstructor></TopInstructor>
-      <WhyUsSection></WhyUsSection>
+      <EnhancedHomeHero />
+      <EnhancedHomeCourseSection />
+      <EnhancedTopInstructor />
+      <EnhancedWhyUsSection />
     </div>
   );
 };

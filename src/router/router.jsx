@@ -7,18 +7,20 @@ import Register from "../pages/auth/Register";
 
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
-import MyAddedCourse from "../pages/MyAddedCourse";
 import MyEnrolledCourse from "../pages/Dashboard/Student/MyEnrolledCourse";
 
 import ViewDetailsPage from "../Components/ViewDetailsPage";
-import UpdateData from "../pages/Dashboard/admin/UpdateData";
+import EnhancedUpdateCourse from "../pages/Dashboard/admin/EnhancedUpdateCourse";
 import ErrorPage from "../Components/ErrorPage";
-import AddCourse from "../pages/Dashboard/admin/AddCourse";
+import EnhancedAddCourse from "../pages/Dashboard/admin/EnhancedAddCourse";
+import EnhancedAdminEnrollments from "../pages/Dashboard/admin/EnhancedAdminEnrollments";
+import EnhancedMyAddedCourses from "../pages/Dashboard/admin/EnhancedMyAddedCourses";
 import AllCourses from "../pages/AllCourses";
-import AdminOverview from "../pages/Dashboard/admin/AdminOverview";
-import AdminEnrollments from "../pages/Dashboard/admin/AdminEnrollments";
 import StudentOverview from "../pages/Dashboard/Student/StudentOverview";
 import StudentProfile from "../pages/Dashboard/Student/StudentProfile";
+import LoadingPreview from "../pages/LoadingPreview";
+import EnhancedDashboardLayout from "../layouts/EnhancedDashboardLayout";
+import EnhancedAdminOverview from "../pages/Dashboard/admin/EnhancedAdminOverview";
 // import StudentPaymentHistory from "../pages/Dashboard/Student/StudentPaymentHistory";
 
 
@@ -46,6 +48,10 @@ export const router = createBrowserRouter([
             <ViewDetailsPage></ViewDetailsPage>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/loading-preview",
+        element: <LoadingPreview></LoadingPreview>,
       },
     ],
     errorElement: <ErrorPage></ErrorPage>,
@@ -76,24 +82,24 @@ export const router = createBrowserRouter([
     // ================= ADMIN (5) =================
     {
       path: "admin/overview",
-      element: <AdminOverview />,
+      element:  <EnhancedAdminOverview />,
     },
     {
       path: "admin/myAddedCourse",
-      element: <MyAddedCourse />,
+      element: <EnhancedMyAddedCourses />,
     },
     {
       path: "admin/addCourse",
-      element: <AddCourse />,
+      element: <EnhancedAddCourse></EnhancedAddCourse>,
     },
     
     {
       path: "admin/updateCourse/:id",
-      element: <UpdateData />,
+      element: <EnhancedUpdateCourse />,
     },
     {
       path: "admin/enrollments",
-      element: <AdminEnrollments />,
+      element: <EnhancedAdminEnrollments />,
     },
 
     // ================= STUDENT (5) =================
@@ -115,6 +121,64 @@ export const router = createBrowserRouter([
     //   element: <StudentPaymentHistory />,
     // },
   
+    {
+      path: "student/profile",
+      element: <StudentProfile />,
+    },
+  ],
+  errorElement: <ErrorPage />,
+},
+{
+  path: "enhanced-dashboard",
+  element: (
+    <PrivateRoute>
+      <EnhancedDashboardLayout />
+    </PrivateRoute>
+  ),
+  children: [
+    // ================= ADMIN ENHANCED =================
+    {
+      path: "admin/overview",
+      element: <EnhancedAdminOverview />,
+    },
+    {
+      path: "admin/courses",
+      element: <EnhancedMyAddedCourses />,
+    },
+    {
+      path: "admin/students",
+      element: <EnhancedAdminEnrollments />,
+    },
+    {
+      path: "admin/analytics",
+      element: <EnhancedAdminOverview />,
+    },
+    {
+      path: "admin/add-course",
+      element: <EnhancedAddCourse />,
+    },
+    {
+      path: "admin/update-course/:id",
+      element: <EnhancedUpdateCourse />,
+    },
+    // {
+    //   path: "admin/settings",
+    //   element: <AdminOverview />,
+    // },
+
+    // ================= STUDENT ENHANCED =================
+    {
+      path: "student/overview",
+      element: <StudentOverview />,
+    },
+    {
+      path: "student/courses",
+      element: <MyEnrolledCourse/>,
+    },
+    {
+      path: "student/progress",
+      element: <StudentProfile />,
+    },
     {
       path: "student/profile",
       element: <StudentProfile />,

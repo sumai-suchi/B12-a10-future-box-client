@@ -1,0 +1,184 @@
+/* Eye-Soothing Dashboard Theme */
+
+/* Custom gradient backgrounds */
+.dashboard-gradient {
+  background: linear-gradient(135deg, 
+    rgba(248, 250, 252, 0.8) 0%, 
+    rgba(241, 245, 249, 0.6) 25%,
+    rgba(236, 254, 255, 0.4) 50%,
+    rgba(240, 253, 250, 0.6) 75%,
+    rgba(248, 250, 252, 0.8) 100%);
+}
+
+.dashboard-gradient-dark {
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.8) 0%, 
+    rgba(30, 41, 59, 0.6) 25%,
+    rgba(17, 24, 39, 0.4) 50%,
+    rgba(31, 41, 55, 0.6) 75%,
+    rgba(15, 23, 42, 0.8) 100%);
+}
+
+/* Soft shadows */
+.soft-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.soft-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Gentle hover effects */
+.gentle-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gentle-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Soft focus rings */
+.soft-focus:focus {
+  outline: none;
+  ring-width: 2px;
+  ring-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+/* Pastel color palette */
+:root {
+  --color-emerald-soft: rgba(16, 185, 129, 0.1);
+  --color-teal-soft: rgba(20, 184, 166, 0.1);
+  --color-cyan-soft: rgba(6, 182, 212, 0.1);
+  --color-sky-soft: rgba(14, 165, 233, 0.1);
+  --color-violet-soft: rgba(139, 92, 246, 0.1);
+  --color-rose-soft: rgba(244, 63, 94, 0.1);
+  --color-amber-soft: rgba(245, 158, 11, 0.1);
+}
+
+/* Glassmorphism effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-effect-dark {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* Smooth animations */
+.smooth-enter {
+  animation: smoothEnter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes smoothEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Soft text colors */
+.text-soft-slate {
+  color: rgb(71, 85, 105);
+}
+
+.dark .text-soft-slate {
+  color: rgb(203, 213, 225);
+}
+
+.text-soft-emerald {
+  color: rgb(16, 185, 129);
+}
+
+.text-soft-teal {
+  color: rgb(20, 184, 166);
+}
+
+/* Gentle borders */
+.border-soft {
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.dark .border-soft {
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+/* Soft backgrounds for cards */
+.bg-soft-white {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.bg-soft-slate {
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+/* Breathing animation for important elements */
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+/* Soft gradient buttons */
+.btn-soft-emerald {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-soft-emerald:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Soft loading states */
+.loading-soft {
+  background: linear-gradient(90deg, 
+    rgba(148, 163, 184, 0.1) 25%, 
+    rgba(203, 213, 225, 0.2) 50%, 
+    rgba(148, 163, 184, 0.1) 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 2s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .gentle-hover,
+  .smooth-enter,
+  .breathe,
+  .loading-soft {
+    animation: none;
+    transition: none;
+  }
+}
