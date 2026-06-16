@@ -5,7 +5,6 @@ import { useAnimation } from "../context/AnimationProvider";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import EnhancedTitle from "./EnhancedTitle";
 import EnhancedInstructorCard from "../Components/EnhancedInstructorCard";
 import LoadingSkeleton from "../Components/LoadingSkeleton";
 
@@ -49,47 +48,31 @@ const EnhancedTopInstructor = () => {
   };
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-indigo-50 via-purple-50/50 to-pink-50/30 dark:from-slate-900 dark:via-indigo-900/50 dark:to-purple-900/30 overflow-hidden">
-      {/* Background Decorations */}
+    <section className="w-full bg-[#0B0C10] text-white py-24 px-6 lg:px-16 border-t border-slate-900/60 overflow-hidden antialiased relative">
+      
+      {/* Background Cyber Glow Coordinates */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-rose-200/30 to-pink-300/30 rounded-full blur-3xl"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 20, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{
-            duration: config.reducedMotion ? 0 : 12,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-10 left-10 w-32 h-32 bg-gradient-to-br from-amber-200/30 to-orange-300/30 rounded-full blur-2xl"
-          animate={{
-            x: [0, 40, 0],
-            y: [0, -25, 0],
-            scale: [1, 0.9, 1]
-          }}
-          transition={{
-            duration: config.reducedMotion ? 0 : 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3
-          }}
-        />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#00F0FF]/5 dark:bg-[#00F0FF]/3 blur-[120px] rounded-full" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-8">
-        {/* Enhanced Title */}
-        <EnhancedTitle
-          title="Meet Our Experts"
-          subtitle="Learn from industry professionals who bring real-world experience and passion to every lesson"
-          badge="⭐ Top Rated"
-        />
+      <div className="relative z-10 max-w-7xl mx-auto">
+        
+        {/* Header Title Block - Styled precisely to match image references */}
+        <div className="w-full pb-6 border-b border-slate-900 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="space-y-2">
+            <span className="font-mono text-xs font-bold tracking-[0.2em] text-[#00F0FF] uppercase block">
+              THE FACULTY
+            </span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight font-sans">
+              Core Faculty Matrix
+            </h2>
+          </div>
+          <div className="font-mono text-[10px] md:text-xs text-slate-600 font-bold tracking-wider select-none md:mb-1">
+            // ACTIVE_METHODOLOGY_ENGINE
+          </div>
+        </div>
 
-        {/* Instructor Carousel */}
+        {/* Instructor Carousel Slider */}
         <motion.div
           className="mt-16"
           variants={containerVariants}
@@ -104,18 +87,18 @@ const EnhancedTopInstructor = () => {
               ))}
             </div>
           ) : (
-            <div className="relative">
+            <div className="relative group/swiper">
               <Swiper
                 effect="coverflow"
                 grabCursor={true}
                 centeredSlides={true}
                 slidesPerView="auto"
                 coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
+                  rotate: 8,
+                  stretch: -15,
                   depth: 100,
                   modifier: 1,
-                  slideShadows: true,
+                  slideShadows: false,
                 }}
                 autoplay={{
                   delay: 4000,
@@ -128,113 +111,120 @@ const EnhancedTopInstructor = () => {
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
-                className="instructor-swiper pb-16"
+                className="instructor-swiper pb-20"
                 breakpoints={{
-                  320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 40,
-                  },
+                  320: { slidesPerView: 1, spaceBetween: 20 },
+                  768: { slidesPerView: 2, spaceBetween: 24 },
+                  1024: { slidesPerView: 3, spaceBetween: 32 },
                 }}
               >
                 {instructorData.map((instructor, index) => (
                   <SwiperSlide key={instructor._id} className="max-w-sm">
+                    {/* Realigned Card Container Token Wrapper */}
                     <motion.div
-                      initial={{ opacity: 0, y: 50 }}
+                      initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ 
-                        duration: config.reducedMotion ? 0.1 : 0.6,
-                        delay: index * 0.1 
+                        duration: config.reducedMotion ? 0.1 : 0.5,
+                        delay: index * 0.06,
+                        ease: [0.16, 1, 0.3, 1]
                       }}
+                      className="h-full rounded-2xl border border-slate-900 bg-[#12141C] p-2 relative overflow-hidden group/card transition-all duration-300 hover:border-cyan-500/30 hover:shadow-[0_0_30px_rgba(0,240,255,0.03)]"
                     >
-                      <EnhancedInstructorCard instructor={instructor} index={index} />
+                      {/* Top Chrome Accent Pin */}
+                      <div className="absolute top-0 left-4 right-4 h-[1px] bg-gradient-to-r from-transparent via-slate-800 to-transparent group-hover/card:via-cyan-400/40 transition-all duration-500" />
+                      
+                      <div className="bg-transparent rounded-xl overflow-hidden h-full">
+                        <EnhancedInstructorCard instructor={instructor} index={index} />
+                      </div>
                     </motion.div>
                   </SwiperSlide>
                 ))}
               </Swiper>
 
-              {/* Custom Navigation Styling */}
+              {/* Custom Integrated Global Layout Navigation Styles */}
               <style jsx global>{`
                 .instructor-swiper .swiper-button-next,
                 .instructor-swiper .swiper-button-prev {
-                  background: linear-gradient(135deg, #10b981, #14b8a6);
-                  width: 50px;
-                  height: 50px;
-                  border-radius: 50%;
-                  color: white;
-                  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-                  transition: all 0.3s ease;
+                  background: #12141C;
+                  border: 1px solid #1e293b;
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 12px;
+                  color: #00F0FF;
+                  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                  opacity: 0;
+                }
+
+                .group/swiper:hover .swiper-button-next,
+                .group/swiper:hover .swiper-button-prev {
+                  opacity: 1;
                 }
 
                 .instructor-swiper .swiper-button-next:hover,
                 .instructor-swiper .swiper-button-prev:hover {
-                  transform: scale(1.1);
-                  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.4);
+                  border-color: #00F0FF;
+                  color: #ffffff;
+                  background: #00F0FF/5;
+                  box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
                 }
 
                 .instructor-swiper .swiper-button-next::after,
                 .instructor-swiper .swiper-button-prev::after {
-                  font-size: 18px;
-                  font-weight: bold;
+                  font-size: 13px;
+                  font-weight: 900;
                 }
 
                 .instructor-swiper .swiper-pagination-bullet {
-                  background: linear-gradient(135deg, #10b981, #14b8a6);
-                  opacity: 0.3;
+                  background: #B266FF;
+                  opacity: 0.2;
                   transition: all 0.3s ease;
                 }
 
                 .instructor-swiper .swiper-pagination-bullet-active {
+                  background: #00F0FF;
                   opacity: 1;
-                  transform: scale(1.2);
+                  transform: scale(1.15);
+                  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
                 }
               `}</style>
             </div>
           )}
         </motion.div>
 
-        {/* Stats Section */}
+        {/* Metric Dashboard Footer Track */}
         <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
-          initial={{ opacity: 0, y: 30 }}
+          className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-6 font-mono"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: config.reducedMotion ? 0.1 : 0.8, delay: 0.3 }}
+          transition={{ duration: config.reducedMotion ? 0.1 : 0.6, delay: 0.1 }}
         >
           {[
-            { number: "50+", label: "Expert Instructors", icon: "👨‍🏫" },
-            { number: "10K+", label: "Students Taught", icon: "🎓" },
-            { number: "4.9", label: "Average Rating", icon: "⭐" },
-            { number: "95%", label: "Success Rate", icon: "🏆" }
-          ].map((stat, index) => (
-            <motion.div
+            { number: "50+", label: "Expert Instructors", tag: "ENG_STAFF" },
+            { number: "10K+", label: "Students Taught", tag: "OPERATORS" },
+            { number: "4.9", label: "Average Rating", tag: "EVAL_INDEX" },
+            { number: "95%", label: "Success Rate", tag: "GRAD_ROUTE" }
+          ].map((stat) => (
+            <div
               key={stat.label}
-              className="text-center p-6 bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-slate-700/20 shadow-lg"
-              whileHover={config.reducedMotion ? {} : { y: -5, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              className="p-5 bg-[#12141C] border border-slate-900 rounded-xl flex flex-col justify-between group transition-all duration-300 hover:border-slate-800"
             >
-              <motion.div
-                className="text-3xl mb-2"
-              >
-                {stat.icon}
-              </motion.div>
-              <motion.div
-                className="text-3xl font-black text-slate-800 dark:text-slate-200 mb-1"
-              >
-                {stat.number}
-              </motion.div>
-              <div className="text-sm font-semibold text-slate-600 dark:text-slate-400">
-                {stat.label}
+              <div className="flex items-center justify-between text-[10px] text-slate-500 font-bold mb-4">
+                <span>// {stat.tag}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-800 group-hover:bg-[#00F0FF] transition-colors" />
               </div>
-            </motion.div>
+              
+              <div className="space-y-1">
+                <div className="text-3xl font-bold tracking-tight text-white font-sans">
+                  {stat.number}
+                </div>
+                <div className="text-xs text-slate-400 font-sans font-medium tracking-wide">
+                  {stat.label}
+                </div>
+              </div>
+            </div>
           ))}
         </motion.div>
       </div>

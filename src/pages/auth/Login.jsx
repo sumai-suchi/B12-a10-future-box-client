@@ -115,10 +115,10 @@ const Login = () => {
           <div className="flex justify-between ">
             <div></div>
             <NavLink
-              to={"/auth/Register"}
+              to={"auth/login"}
               className="text-blue-500 flex  font-semibold items-center justify-center"
             >
-              <FaArrowLeft /> go to Register
+              <FaArrowLeft /> go to login
             </NavLink>
           </div>
         </div>

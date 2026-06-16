@@ -1,274 +1,193 @@
-import { motion } from "framer-motion";
-import { useAnimation } from "../context/AnimationProvider";
-import EnhancedTitle from "./EnhancedTitle";
-import {
-  CheckCircleIcon,
-  AcademicCapIcon,
-  ClockIcon,
-  TrophyIcon,
-  UserGroupIcon,
-  LightBulbIcon,
-  ShieldCheckIcon,
-  RocketLaunchIcon
-} from "@heroicons/react/24/outline";
+import { CheckCircle } from "lucide-react";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
-const EnhancedWhyUsSection = () => {
-  const { config } = useAnimation();
-
-  const features = [
-    "100% engaging and practical lessons",
-    "Personalized learning paths for each student",
-    "Hands-on projects and real-world examples",
-    "Community support and mentorship access"
+const WhyUsSection = () => {
+  const instructorFeatures = [
+    "Vetted industry veterans with 5+ years coding experience.",
+    "Interactive code-along sessions during every class.",
+    "1-on-1 personalized project debugging reviews.",
+    "Direct communication channels through priority workspace channels."
   ];
 
-  const whyUsCards = [
-    {
-      title: "Expert Instructors",
-      description: "Learn from professional instructors with years of experience who guide you step-by-step through real-world lessons designed to help you grow your skills confidently.",
-      icon: AcademicCapIcon,
-      gradient: "from-emerald-500 to-teal-600",
-      bgGradient: "from-emerald-50 to-teal-50",
-      darkBgGradient: "from-emerald-900/20 to-teal-900/20",
-      borderColor: "border-emerald-200/50 dark:border-emerald-700/50"
-    },
-    {
-      title: "Complete Courses",
-      description: "Our special courses are designed for all levels — from beginners to advanced learners. Each course is structured to make learning fun, interactive, and goal-oriented.",
-      icon: TrophyIcon,
-      gradient: "from-violet-500 to-purple-600",
-      bgGradient: "from-violet-50 to-purple-50",
-      darkBgGradient: "from-violet-900/20 to-purple-900/20",
-      borderColor: "border-violet-200/50 dark:border-violet-700/50"
-    },
-    {
-      title: "Flexible Learning",
-      description: "Learn at your own pace with flexible schedules and resources that allow you to balance learning with daily life while achieving your goals.",
-      icon: ClockIcon,
-      gradient: "from-rose-500 to-pink-600",
-      bgGradient: "from-rose-50 to-pink-50",
-      darkBgGradient: "from-rose-900/20 to-pink-900/20",
-      borderColor: "border-rose-200/50 dark:border-rose-700/50"
-    },
-    {
-      title: "Certified Courses",
-      description: "Earn certificates to showcase your skills and achievements, helping you grow professionally and stand out in your career journey.",
-      icon: ShieldCheckIcon,
-      gradient: "from-amber-500 to-orange-600",
-      bgGradient: "from-amber-50 to-orange-50",
-      darkBgGradient: "from-amber-900/20 to-orange-900/20",
-      borderColor: "border-amber-200/50 dark:border-amber-700/50"
-    }
+  const courseFeatures = [
+    "Syllabi built dynamically from current tech stacks.",
+    "Comprehensive source-code libraries provided per module.",
+    "Capstones modeled after real enterprise technical challenges.",
+    "Access to exclusive beta workshops on emerging frame updates."
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: config.reducedMotion ? 0 : 0.1,
-        delayChildren: config.reducedMotion ? 0 : 0.2
-      }
-    }
-  };
+  const flexibleFeatures = [
+    "Lifetime dashboard access to self-paced stream recording assets.",
+    "Flexible modular tracks designed around professional schedules.",
+    "Cross-device terminal platforms for sandbox code testing anywhere.",
+    "Pause, resume, or switch active cohort schedules seamlessly."
+  ];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { 
-        duration: config.reducedMotion ? 0.1 : 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
+  const certifiedFeatures = [
+    "Cryptographically verifiable graduation credentials.",
+    "Direct automated routing profiles straight to partnering teams.",
+    "Sharable dynamic portfolio project pages with live source proof.",
+    "Exclusive alumni network authorization keys upon module validation."
+  ];
 
-  const iconVariants = {
-    hover: {
-      scale: config.reducedMotion ? 1 : 1.1,
-      rotate: config.reducedMotion ? 0 : 5,
-      transition: { duration: 0.3 }
-    }
-  };
+  useEffect(() => {
+    Aos.init({
+      duration: 800,
+      easing: "ease-out",
+      once: true,
+    });
+  }, []);
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-slate-900 dark:via-blue-900/30 dark:to-indigo-900/50 overflow-hidden">
-      {/* Background Decorations */}
+    <div className="w-full bg-[#0B0C10] text-white py-24 border-t border-slate-900/60 relative overflow-hidden antialiased">
+      {/* Background Ambience Layer - Clean Unified Cyan Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-cyan-200/20 to-blue-300/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-            scale: [1, 1.1, 1]
-          }}
-          transition={{
-            duration: config.reducedMotion ? 0 : 15,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-br from-indigo-200/20 to-purple-300/20 rounded-full blur-2xl"
-          animate={{
-            x: [0, -25, 0],
-            y: [0, 15, 0],
-            scale: [1, 0.9, 1]
-          }}
-          transition={{
-            duration: config.reducedMotion ? 0 : 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4
-          }}
-        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[250px] bg-[#00F0FF]/3 blur-[130px] rounded-full" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-8">
-        {/* Enhanced Title */}
-        <EnhancedTitle
-          title="Why Choose Us?"
-          subtitle="Discover what makes our learning platform the perfect choice for your educational journey"
-          badge="🌟 Student Favorite"
-        />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16">
+        
+        {/* Header Title Block - Rebuilt to exactly replicate the reference layout */}
+        <div className="w-full pb-6 border-b border-slate-900 flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
+          <div className="space-y-2">
+            <span className="font-mono text-xs font-bold tracking-[0.2em] text-[#00F0FF] uppercase block">
+              THE ECOSYSTEM
+            </span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight font-sans">
+              How You Learn on Future Box
+            </h2>
+          </div>
+          <div className="font-mono text-[10px] md:text-xs text-slate-600 font-bold tracking-wider select-none md:mb-1">
+            // ACTIVE_METHODOLOGY_ENGINE
+          </div>
+        </div>
+        
+        <section className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+          
+          {/* Card 1: Professional Instructors */}
+          <div
+            className="bg-[#12141C] rounded-2xl border border-slate-900/80 p-8 hover:border-[#00F0FF]/30 hover:shadow-[0_0_30px_rgba(0,240,255,0.03)] transition-all duration-300 relative group"
+            data-aos="fade-up"
+            data-aos-delay="50"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-mono text-[9px] text-slate-500 font-bold tracking-wider">// SYSTEM_FACULTY</span>
+              <span className="text-[9px] font-mono font-bold text-[#00F0FF] bg-[#00F0FF]/5 border border-[#00F0FF]/10 px-2 py-0.5 rounded">SYS_01</span>
+            </div>
+            
+            <h2 className="text-lg font-bold text-white mb-3 tracking-wide group-hover:text-[#00F0FF] transition-colors duration-200">
+              PROFESSIONAL INSTRUCTORS
+            </h2>
+            <p className="text-slate-400 text-xs leading-relaxed mb-6 font-sans font-medium">
+              Learn from professional instructors with years of experience who
+              guide you step-by-step through real-world lessons designed to help
+              you grow your skills confidently.
+            </p>
 
-        {/* Cards Grid */}
-        <motion.div
-          className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {whyUsCards.map((card, index) => (
-            <motion.div
-              key={card.title}
-              className={`group relative bg-gradient-to-br ${card.bgGradient} dark:${card.darkBgGradient} backdrop-blur-xl rounded-3xl shadow-xl border ${card.borderColor} p-8 hover:shadow-2xl transition-all duration-500 overflow-hidden`}
-              variants={cardVariants}
-              whileHover={config.reducedMotion ? {} : { y: -8, scale: 1.02 }}
-            >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-              </div>
+            <ul className="space-y-3.5 border-t border-slate-950 pt-5">
+              {instructorFeatures.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-slate-300 font-sans text-xs font-medium leading-relaxed">
+                  <span className="font-mono text-[#00F0FF] text-[11px] font-bold mt-0.5 select-none">[//]</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              {/* Icon */}
-              <motion.div
-                className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${card.gradient} rounded-2xl shadow-lg mb-6 relative z-10`}
-              >
-                <card.icon className="w-8 h-8 text-white" />
-              </motion.div>
+          {/* Card 2: Complete & Special Courses */}
+          <div
+            className="bg-[#12141C] rounded-2xl border border-slate-900/80 p-8 hover:border-[#00F0FF]/30 hover:shadow-[0_0_30px_rgba(0,240,255,0.03)] transition-all duration-300 relative group"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-mono text-[9px] text-slate-500 font-bold tracking-wider">// CORE_CURRICULUM</span>
+              <span className="text-[9px] font-mono font-bold text-[#00F0FF] bg-[#00F0FF]/5 border border-[#00F0FF]/10 px-2 py-0.5 rounded">SYS_02</span>
+            </div>
 
-              {/* Content */}
-              <div className="relative z-10">
-                <motion.h3
-                  className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                >
-                  {card.title}
-                </motion.h3>
+            <h2 className="text-lg font-bold text-white mb-3 tracking-wide group-hover:text-[#00F0FF] transition-colors duration-200">
+              COMPLETE & SPECIAL COURSES
+            </h2>
+            <p className="text-slate-400 text-xs leading-relaxed mb-6 font-sans font-medium">
+              Our special courses are designed for all levels — from beginners
+              to advanced learners. Each course is structured to make learning
+              fun, interactive, and goal-oriented.
+            </p>
 
-                <motion.p
-                  className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.4 }}
-                >
-                  {card.description}
-                </motion.p>
+            <ul className="space-y-3.5 border-t border-slate-950 pt-5">
+              {courseFeatures.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-slate-300 font-sans text-xs font-medium leading-relaxed">
+                  <span className="font-mono text-[#00F0FF] text-[11px] font-bold mt-0.5 select-none">[//]</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                {/* Features List */}
-                <motion.ul
-                  className="space-y-3"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.5 }}
-                >
-                  {features.map((feature, featureIndex) => (
-                    <motion.li
-                      key={featureIndex}
-                      className="flex items-start space-x-3 text-slate-700 dark:text-slate-300"
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 + 0.6 + featureIndex * 0.1 }}
-                    >
-                      <motion.div
-                        whileHover={config.reducedMotion ? {} : { scale: 1.2, rotate: 360 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <CheckCircleIcon className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                      </motion.div>
-                      <span className="text-sm font-medium">{feature}</span>
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </div>
+          {/* Card 3: Flexible Learning */}
+          <div
+            className="bg-[#12141C] rounded-2xl border border-slate-900/80 p-8 hover:border-[#00F0FF]/30 hover:shadow-[0_0_30px_rgba(0,240,255,0.03)] transition-all duration-300 relative group"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-mono text-[9px] text-slate-500 font-bold tracking-wider">// CHRONO_SCHEDULING</span>
+              <span className="text-[9px] font-mono font-bold text-[#00F0FF] bg-[#00F0FF]/5 border border-[#00F0FF]/10 px-2 py-0.5 rounded">SYS_03</span>
+            </div>
 
-              {/* Decorative Elements */}
-              <motion.div
-                className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br from-white/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.6, 0.3]
-                }}
-                transition={{
-                  duration: config.reducedMotion ? 0 : 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.5
-                }}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+            <h2 className="text-lg font-bold text-white mb-3 tracking-wide group-hover:text-[#00F0FF] transition-colors duration-200">
+              FLEXIBLE LEARNING
+            </h2>
+            <p className="text-slate-400 text-xs leading-relaxed mb-6 font-sans font-medium">
+              Learn at your own pace with flexible schedules and resources that
+              allow you to balance learning with daily life without dropping production targets.
+            </p>
+            
+            <ul className="space-y-3.5 border-t border-slate-950 pt-5">
+              {flexibleFeatures.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-slate-300 font-sans text-xs font-medium leading-relaxed">
+                  <span className="font-mono text-[#00F0FF] text-[11px] font-bold mt-0.5 select-none">[//]</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Bottom Stats Section */}
-        <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: config.reducedMotion ? 0.1 : 0.8, delay: 0.5 }}
-        >
-          {[
-            { icon: UserGroupIcon, number: "50K+", label: "Happy Students", color: "from-emerald-400 to-teal-500" },
-            { icon: AcademicCapIcon, number: "1000+", label: "Courses Available", color: "from-blue-400 to-cyan-500" },
-            { icon: TrophyIcon, number: "95%", label: "Success Rate", color: "from-amber-400 to-orange-500" },
-            { icon: RocketLaunchIcon, number: "24/7", label: "Support Available", color: "from-violet-400 to-purple-500" }
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              className="text-center p-6 bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-slate-700/20 shadow-lg group"
-              whileHover={config.reducedMotion ? {} : { y: -5, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <motion.div
-                className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${stat.color} rounded-2xl mb-4 shadow-lg`}
-              >
-                <stat.icon className="w-6 h-6 text-white" />
-              </motion.div>
-              <motion.div
-                className="text-2xl font-black text-slate-800 dark:text-slate-200 mb-1"
-              >
-                {stat.number}
-              </motion.div>
-              <div className="text-sm font-semibold text-slate-600 dark:text-slate-400">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+          {/* Card 4: Certified Courses */}
+          <div
+            className="bg-[#12141C] rounded-2xl border border-slate-900/80 p-8 hover:border-[#00F0FF]/30 hover:shadow-[0_0_30px_rgba(0,240,255,0.03)] transition-all duration-300 relative group"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-mono text-[9px] text-slate-500 font-bold tracking-wider">// VERIFIED_CREDENTIAL</span>
+              <span className="text-[9px] font-mono font-bold text-[#00F0FF] bg-[#00F0FF]/5 border border-[#00F0FF]/10 px-2 py-0.5 rounded">SYS_04</span>
+            </div>
+
+            <h2 className="text-lg font-bold text-white mb-3 tracking-wide group-hover:text-[#00F0FF] transition-colors duration-200">
+              CERTIFIED COURSES
+            </h2>
+            <p className="text-slate-400 text-xs leading-relaxed mb-6 font-sans font-medium">
+              Earn certificates to showcase your skills and achievements,
+              helping you grow professionally and transparently verify engineering capacities.
+            </p>
+            
+            <ul className="space-y-3.5 border-t border-slate-950 pt-5">
+              {certifiedFeatures.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-slate-300 font-sans text-xs font-medium leading-relaxed">
+                  <span className="font-mono text-[#00F0FF] text-[11px] font-bold mt-0.5 select-none">[//]</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </section>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default EnhancedWhyUsSection;
+export default WhyUsSection;

@@ -40,13 +40,13 @@ const AuthProvider = ({ children }) => {
      useEffect(() => {
       console.log(user?.email);
     axios.get(`https://b12-a10-future-box-server-hazel.vercel.app/users/role?email=${user?.email}`).then((res) => {
-      console.log(res.data)
+      console.log("data",res.data)
       setUserData(res.data);
       console.log("User IP Address:", res.data.role);
       setRole(res.data.role);
        setLoading(false);
     });
-  }, [user?.email,role]);
+  }, [user?.email]);
 
  
   useEffect(() => {

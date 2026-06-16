@@ -21,6 +21,7 @@ import StudentProfile from "../pages/Dashboard/Student/StudentProfile";
 import LoadingPreview from "../pages/LoadingPreview";
 import EnhancedDashboardLayout from "../layouts/EnhancedDashboardLayout";
 import EnhancedAdminOverview from "../pages/Dashboard/admin/EnhancedAdminOverview";
+import LearningProgress from "../pages/Dashboard/Student/LearningProgress";
 // import StudentPaymentHistory from "../pages/Dashboard/Student/StudentPaymentHistory";
 
 
@@ -57,77 +58,77 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
   },
   {
-    path: "auth",
+    path: "/",
     element: <AuthLayouts></AuthLayouts>,
     children: [
       {
-        path: "Login",
+        path: "login",
         element: <Login></Login>,
       },
       {
-        path: "Register",
+        path: "register",
         element: <Register></Register>,
       },
     ],
     errorElement: <ErrorPage></ErrorPage>,
   },
-  {
-  path: "dashboard",
-  element: (
-    <PrivateRoute>
-      <DashboardLayout />
-    </PrivateRoute>
-  ),
-  children: [
-    // ================= ADMIN (5) =================
-    {
-      path: "admin/overview",
-      element:  <EnhancedAdminOverview />,
-    },
-    {
-      path: "admin/myAddedCourse",
-      element: <EnhancedMyAddedCourses />,
-    },
-    {
-      path: "admin/addCourse",
-      element: <EnhancedAddCourse></EnhancedAddCourse>,
-    },
+//   {
+//   path: "dashboard",
+//   element: (
+//     <PrivateRoute>
+//       <DashboardLayout />
+//     </PrivateRoute>
+//   ),
+//   children: [
+//     // ================= ADMIN (5) =================
+//     {
+//       path: "admin/overview",
+//       element:  <EnhancedAdminOverview />,
+//     },
+//     {
+//       path: "admin/myAddedCourse",
+//       element: <EnhancedMyAddedCourses />,
+//     },
+//     {
+//       path: "admin/addCourse",
+//       element: <EnhancedAddCourse></EnhancedAddCourse>,
+//     },
     
-    {
-      path: "admin/updateCourse/:id",
-      element: <EnhancedUpdateCourse />,
-    },
-    {
-      path: "admin/enrollments",
-      element: <EnhancedAdminEnrollments />,
-    },
+//     {
+//       path: "admin/updateCourse/:id",
+//       element: <EnhancedUpdateCourse />,
+//     },
+//     {
+//       path: "admin/enrollments",
+//       element: <EnhancedAdminEnrollments />,
+//     },
 
-    // ================= STUDENT (5) =================
-    {
-      path: "student/overview",
-      element: <StudentOverview />,
-    },
-    {
-      path: "student/myEnrolledCourse",
-      element: <MyEnrolledCourse/>,
-    },
-    // {
-    //   path: "student/course/:id",
-    //   element: <StudentCourseDetails />,
-    // },
+//     // ================= STUDENT (5) =================
+//     {
+//       path: "student/overview",
+//       element: <StudentOverview />,
+//     },
+//     {
+//       path: "student/myEnrolledCourse",
+//       element: <MyEnrolledCourse/>,
+//     },
+//     // {
+//     //   path: "student/course/:id",
+//     //   element: <StudentCourseDetails />,
+//     // },
   
-    // {
-    //   path: "student/StudentPaymentHistory",
-    //   element: <StudentPaymentHistory />,
-    // },
+//     // {
+//     //   path: "student/StudentPaymentHistory",
+//     //   element: <StudentPaymentHistory />,
+//     // },
   
-    {
-      path: "student/profile",
-      element: <StudentProfile />,
-    },
-  ],
-  errorElement: <ErrorPage />,
-},
+//     {
+//       path: "student/profile",
+//       element: <StudentProfile />,
+//     },
+//   ],
+//   errorElement: <ErrorPage />,
+// },
 {
   path: "enhanced-dashboard",
   element: (
@@ -177,7 +178,7 @@ export const router = createBrowserRouter([
     },
     {
       path: "student/progress",
-      element: <StudentProfile />,
+      element: <LearningProgress></LearningProgress>,
     },
     {
       path: "student/profile",
