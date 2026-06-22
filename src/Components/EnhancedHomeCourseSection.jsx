@@ -6,6 +6,7 @@ import LoadingSkeleton from "./LoadingSkeleton";
 const EnhancedHomeCourseSection = () => {
   const { config } = useAnimation();
   const { allCourses, loadingData } = useAllCoursesData();
+  console.log(allCourses);
 
   // 1. Safe Extraction: Fallback to an empty object if array is empty so it doesn't crash
   const mainFeaturedCourse = allCourses && allCourses.length > 0 ? allCourses[0] : null;
@@ -125,7 +126,7 @@ const EnhancedHomeCourseSection = () => {
 
                   <div className="relative z-10 pt-6">
                     <a 
-                      href={`/course/${mainFeaturedCourse._id}`}
+                      href={`/viewDetails/${mainFeaturedCourse._id}`}
                       className="inline-block px-6 py-2.5 bg-[#00F0FF] hover:bg-cyan-300 text-[#0B0C10] text-xs font-black tracking-wide rounded-md transition-all font-sans"
                     >
                       Enroll Now
@@ -162,7 +163,7 @@ const EnhancedHomeCourseSection = () => {
                     <span className="text-xs font-bold tracking-widest text-[#FF66CC] font-mono">
                       ${rightColumnCourse.price || "199.00"}
                     </span>
-                    <a href={`/course/${rightColumnCourse._id}`} className="text-[#00F0FF] hover:text-white">
+                    <a href={`/viewDetails/${rightColumnCourse._id}`} className="text-[#00F0FF] hover:text-white">
                       <svg className="w-4 h-4 transform -rotate-45" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
@@ -206,7 +207,7 @@ const EnhancedHomeCourseSection = () => {
                       <span className="text-xs font-bold tracking-widest text-[#FF66CC] font-mono">
                         ${course.price || "199.00"}
                       </span>
-                      <a href={`/course/${course._id}`} className="text-[#00F0FF] hover:text-white">
+                      <a href={`/viewDetails/${course._id}`} className="text-[#00F0FF] hover:text-white">
                         <svg className="w-4 h-4 transform -rotate-45" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>

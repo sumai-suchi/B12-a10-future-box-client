@@ -36,7 +36,7 @@ const Navbar = () => {
 
   const navLinks = [
     { to: "/", label: "Home", icon: <BookOpenIcon className="w-3.5 h-3.5" /> },
-    { to: "/allCourses", label: "Tracks", icon: <CommandLineIcon className="w-3.5 h-3.5" /> },
+    { to: "/allCourses", label: "All Courses", icon: <CommandLineIcon className="w-3.5 h-3.5" /> },
     { to: "/enhanced-dashboard", label: "Dashboard", icon: <Squares2X2Icon className="w-3.5 h-3.5" /> }
   ];
 
@@ -121,7 +121,7 @@ const Navbar = () => {
                   }`}>
                     <div className="relative flex items-center">
                       <img
-                        src={user.photoURL || "https://via.placeholder.com/32"}
+                        src={user.photoURL}
                         alt="Profile"
                         className="w-5 h-5 rounded-md object-cover ring-1 ring-slate-800"
                       />
@@ -143,7 +143,7 @@ const Navbar = () => {
                 </div>
               ) : (
                 <NavLink
-                  to="/register"
+                  to="/login"
                   className="inline-flex items-center gap-2 px-4.5 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs tracking-wide rounded-xl shadow-[0_4px_20px_rgba(16,185,129,0.15)] transition-all active:scale-95"
                 >
                   <UserPlusIcon className="w-3.5 h-3.5" />

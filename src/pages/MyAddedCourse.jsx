@@ -10,7 +10,7 @@ const MyAddedCourse = () => {
 
   const handleDeleteCourse = async (id) => {
     const resDelete = await axios.delete(
-      `https://b12-a10-future-box-server-hazel.vercel.app/addedCourses/${id}`
+      `http://localhost:3000/addedCourses/${id}`
     );
     console.log(resDelete?.data);
     if (resDelete?.data.deletedCount > 0) {
@@ -24,7 +24,7 @@ const MyAddedCourse = () => {
     const fetchUserAddedCourse = async () => {
       try {
         const addedData = await axios.get(
-          `https://b12-a10-future-box-server-hazel.vercel.app/addedCourses?email=${user?.email}`
+          `http://localhost:3000/addedCourses?email=${user?.email}`
         );
         setUserData(addedData.data);
       } catch (error) {

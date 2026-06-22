@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@custom-variant dark (&:is(.dark *));
 
 /* Import eye-soothing dashboard theme */
 @import "./styles/dashboard-theme.css";

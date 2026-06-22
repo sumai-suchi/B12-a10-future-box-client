@@ -23,7 +23,7 @@ const MyEnrolledCourse = () => {
 
       try {
         const res = await axios.get(
-          `https://b12-a10-future-box-server-hazel.vercel.app/EnrolledData?email=${user.email}`
+          `http://localhost:3000/EnrolledData?email=${user.email}`
         );
         setEnrollData(res.data);
       } catch (err) {
@@ -56,7 +56,7 @@ const MyEnrolledCourse = () => {
 
     try {
       // Sends the completed data payload to your database API endpoint
-       const res =  await axios.post("https://b12-a10-future-box-server-hazel.vercel.app/CompletedCourses", completionPayload);
+       const res =  await axios.post("http://localhost:3000/CompletedCourses", completionPayload);
        console.log(res.data);
        if(res.data.insertedId){
         // Optional state update: Filter out completed courses if this page only shows active ones

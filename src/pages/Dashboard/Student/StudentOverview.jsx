@@ -18,8 +18,8 @@ import axios from "axios";
 
 const StudentOverview = () => {
 
-  const {user}=useContext(AuthContext)
-  console.log(user?.email);
+  const {user,role}=useContext(AuthContext)
+  console.log(user?.email,role);
     const [studentInformation, setStudentInformation] = useState(null);
   console.log("studentInfo",studentInformation);
 
@@ -86,7 +86,7 @@ const StudentOverview = () => {
 
     const fetchStudentInformation = async () => {
       try {
-        const response = await axios.get(`https://b12-a10-future-box-server-hazel.vercel.app/dashboardInfo?email=${user?.email}`);
+        const response = await axios.get(`http://localhost:3000/dashboardInfo?email=${user?.email}`);
      
         const data = response.data;
         setStudentInformation(data);
@@ -131,14 +131,14 @@ const StudentOverview = () => {
       {/* 1. Static Motivation Header Box */}
       <motion.div 
         variants={itemVariants}
-        className="relative overflow-hidden p-6 md:p-8 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl text-white shadow-xl border border-slate-800"
+        className="relative overflow-hidden p-6 md:p-8 bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-600 dark:from-slate-900 dark:via-indigo-950 dark:to-slate-900 rounded-3xl text-white shadow-xl border border-indigo-400 dark:border-slate-800"
       >
-        <div className="absolute right-0 top-0 translate-x-10 -translate-y-10 w-72 h-72 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none" />
+        <div className="absolute right-0 top-0 translate-x-10 -translate-y-10 w-72 h-72 bg-white/10 dark:bg-indigo-500/10 blur-3xl rounded-full pointer-events-none" />
         
         <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-xl">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 backdrop-blur-md">
-              <SparklesIcon className="w-3.5 h-3.5 text-amber-400" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/20 dark:bg-indigo-500/20 text-white dark:text-indigo-300 border border-white/30 dark:border-indigo-500/30 backdrop-blur-md">
+              <SparklesIcon className="w-3.5 h-3.5 text-amber-300 dark:text-amber-400" />
               Welcome Back Student
             </div>
             <h1 className="text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">

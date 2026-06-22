@@ -54,7 +54,7 @@ const LearningProgress = () => {
   setInputValue("");
 
   try {
-    const res = await fetch("https://b12-a10-future-box-server-hazel.vercel.app/api/chat", {
+    const res = await fetch("http://localhost:3000/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

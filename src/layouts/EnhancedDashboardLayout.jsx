@@ -43,10 +43,15 @@ const EnhancedDashboardLayout = () => {
 
     if (role === "admin") {
       return [
-        ...commonItems,
+       {
+        name: "Dashboard",
+        href: `${baseRoute}/admin/overview`,
+        icon: HomeIcon,
+        description: "Overview and analytics",
+      },
         {
           name: "Courses",
-          href: `enhanced-dashboard/admin/courses`,
+          href: `${baseRoute}/admin/courses`,
           icon: BookOpenIcon,
           description: "Manage all courses",
         },
@@ -77,7 +82,12 @@ const EnhancedDashboardLayout = () => {
       ];
     } else {
       return [
-        ...commonItems,
+         {
+        name: "Dashboard",
+        href: `${baseRoute}/student/overview`,
+        icon: HomeIcon,
+        description: "Overview and analytics",
+      },
         {
           name: "My Courses",
           href: `${baseRoute}/student/courses`,

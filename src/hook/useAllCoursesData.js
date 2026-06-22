@@ -10,7 +10,7 @@ export const useAllCoursesData = () => {
     const fetchCourses = async () => {
       try {
         const res = await axios.get(
-          `https://b12-a10-future-box-server-hazel.vercel.app/courses`
+          `http://localhost:3000/courses`
         );
         setAllCourses(res.data);
       } catch (error) {

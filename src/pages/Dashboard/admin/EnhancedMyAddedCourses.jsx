@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
 import { useAnimation } from "../../../context/AnimationProvider";
-import { useDashboardContext } from "../../../hooks/useDashboardContext";
+import {useDashboardContext} from "../../../hooks/useDashboardContext";
+
 import LoadingSkeleton from "../../../Components/LoadingSkeleton";
 import {
   BookOpenIcon,
@@ -24,6 +25,9 @@ import {
   EllipsisVerticalIcon,
   AcademicCapIcon
 } from "@heroicons/react/24/outline";
+
+
+
 
 const EnhancedMyAddedCourses = () => {
   const { user } = useContext(AuthContext);
@@ -45,7 +49,7 @@ const EnhancedMyAddedCourses = () => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `https://b12-a10-future-box-server-hazel.vercel.app/addedCourses?email=${user?.email}`
+          `http://localhost:3000/addedCourses?email=${user?.email}`
         );
         setCourses(response.data);
         setFilteredCourses(response.data);
@@ -106,7 +110,7 @@ const EnhancedMyAddedCourses = () => {
   const handleDeleteCourse = async (courseId) => {
     try {
       const response = await axios.delete(
-        `https://b12-a10-future-box-server-hazel.vercel.app/addedCourses/${courseId}`
+        `http://localhost:3000/addedCourses/${courseId}`
       );
       
       if (response.data.deletedCount > 0) {
@@ -357,6 +361,7 @@ const EnhancedMyAddedCourses = () => {
 // Grid View Component
 const CoursesGrid = ({ courses, onDeleteCourse }) => {
   const { config } = useAnimation();
+  const {getUpdateCourseRoute} = useDashboardContext();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -374,7 +379,7 @@ const CoursesGrid = ({ courses, onDeleteCourse }) => {
             {/* Course Image */}
             <div className="relative h-48 overflow-hidden">
               <img
-                src={course.image || "https://via.placeholder.com/400x200"}
+                src={course.image }
                 alt={course.title}
                 className="w-full h-full object-cover"
               />
@@ -485,7 +490,7 @@ const CoursesList = ({ courses, onDeleteCourse }) => {
                 {/* Course Image */}
                 <div className="relative w-24 h-16 flex-shrink-0">
                   <img
-                    src={course.image || "https://via.placeholder.com/96x64"}
+                    src={course.image }
                     alt={course.title}
                     className="w-full h-full object-cover rounded-lg"
                   />
